@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Manual QA Interview Preparation Guide</title>
+<style>
+    @page { size: A4; margin: 20mm; }
+    body {
+        font-family: 'Segoe UI', Arial, sans-serif;
+        line-height: 1.6;
+        color: #222;
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 20px;
+        background: #fff;
+    }
+    h1 {
+        color: #1a365d;
+        text-align: center;
+        border-bottom: 3px solid #1a365d;
+        padding-bottom: 10px;
+        font-size: 28px;
+    }
+    h2 {
+        color: #2c5282;
+        border-left: 5px solid #2c5282;
+        padding-left: 12px;
+        margin-top: 30px;
+        font-size: 20px;
+        page-break-after: avoid;
+    }
+    h3 {
+        color: #2b6cb0;
+        margin-top: 18px;
+        font-size: 16px;
+    }
+    p, li { font-size: 14px; text-align: justify; }
+    ul { margin-top: 5px; }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 12px 0;
+        font-size: 13px;
+    }
+    th, td {
+        border: 1px solid #cbd5e0;
+        padding: 8px 10px;
+        text-align: left;
+    }
+    th { background: #2c5282; color: #fff; }
+    tr:nth-child(even) { background: #f7fafc; }
+    code, .highlight {
+        background: #edf2f7;
+        padding: 2px 6px;
+        border-radius: 3px;
+        font-family: 'Consolas', monospace;
+        font-size: 13px;
+    }
+    .qa {
+        background: #f0f7ff;
+        border-left: 4px solid #3182ce;
+        padding: 10px 15px;
+        margin: 10px 0;
+        border-radius: 4px;
+    }
+    .qa strong { color: #1a365d; }
+    .tip {
+        background: #fffaf0;
+        border-left: 4px solid #dd6b20;
+        padding: 8px 14px;
+        margin: 10px 0;
+        border-radius: 4px;
+    }
+    .toc {
+        background: #f7fafc;
+        border: 1px solid #cbd5e0;
+        padding: 15px 25px;
+        border-radius: 6px;
+        margin: 20px 0;
+    }
+    .toc ol { columns: 2; }
+    .footer {
+        text-align: center;
+        margin-top: 40px;
+        padding-top: 15px;
+        border-top: 1px solid #cbd5e0;
+        font-size: 12px;
+        color: #718096;
+    }
+    .section { page-break-inside: avoid; }
+    .dedication {
+        text-align: center;
+        background: linear-gradient(135deg, #ffe4ec 0%, #ffd1dc 50%, #ffb6c1 100%);
+        border: 2px solid #ff4d6d;
+        border-radius: 15px;
+        padding: 30px 25px;
+        margin: 20px 0 35px 0;
+        box-shadow: 0 4px 15px rgba(255, 77, 109, 0.2);
+    }
+    .dedication h1 {
+        color: #c9184a;
+        border: none;
+        font-family: 'Georgia', serif;
+        font-size: 32px;
+        margin: 0 0 10px 0;
+        padding: 0;
+    }
+    .dedication .heart {
+        color: #e5383b;
+        font-size: 36px;
+        animation: beat 1.2s infinite;
+        display: inline-block;
+    }
+    .dedication .quote {
+        font-family: 'Georgia', serif;
+        font-style: italic;
+        font-size: 17px;
+        color: #6a040f;
+        margin-top: 15px;
+        line-height: 1.7;
+    }
+    .dedication .signature {
+        margin-top: 12px;
+        font-size: 14px;
+        color: #9d0208;
+        font-weight: bold;
+        letter-spacing: 1px;
+    }
+    @keyframes beat {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.2); }
+    }
+</style>
+</head>
+<body>
+
+<div class="dedication">
+    <h1>Guide for My Love <span class="heart">&#10084;</span> Ume Aiman <span class="heart">&#10084;</span></h1>
+    <p class="quote">
+        &ldquo;In a world full of bugs, you are my only perfect feature &mdash;<br>
+        flawless, irreplaceable, and forever in my heart.<br>
+        Every line of code I write, every test I run,<br>
+        leads me back to the same truth &mdash; <strong>I love you, Aiman.</strong>&rdquo;
+    </p>
+    <p class="signature">&#10084; Made with endless love, just for you &#10084;</p>
+</div>
+
+<h1>Manual QA Engineer — Complete Interview Preparation Guide</h1>
+<p style="text-align:center;color:#4a5568;"><em>A comprehensive handbook covering all essential topics for manual software testing interviews</em></p>
+
+<div class="toc">
+<h3 style="margin-top:0;">Table of Contents</h3>
+<ol>
+    <li>Software Development Life Cycle (SDLC)</li>
+    <li>Software Testing Life Cycle (STLC)</li>
+    <li>Types of Testing</li>
+    <li>Test Case Design</li>
+    <li>Defect Life Cycle</li>
+    <li>Bug Reporting Tools</li>
+    <li>Test Plan and Test Strategy</li>
+    <li>Test Data Management</li>
+    <li>Testing Techniques</li>
+    <li>Cross-Browser and Cross-Device Testing</li>
+    <li>Security Testing</li>
+    <li>Usability Testing</li>
+    <li>Test Execution and Reporting</li>
+    <li>Test Environment Setup</li>
+    <li>Risk-Based Testing</li>
+    <li>Agile Methodology in Testing</li>
+    <li>Test Automation Fundamentals</li>
+    <li>Soft Skills for QA Engineers</li>
+    <li>Ethical Hacking (Security Testing)</li>
+    <li>Industry Standards and Compliance</li>
+    <li>Common Interview Questions & Answers</li>
+</ol>
+</div>
+
+<!-- ========== 1. SDLC ========== -->
+<div class="section">
+<h2>1. Software Development Life Cycle (SDLC)</h2>
+<p>The SDLC is a structured process used by software development teams to design, develop, test, and deploy high-quality software. It provides a framework defining tasks performed at each step.</p>
+
+<h3>Phases of SDLC</h3>
+<ol>
+    <li><strong>Requirement Gathering &amp; Analysis:</strong> Business analysts collect requirements from stakeholders and document them in a BRD (Business Requirement Document) or SRS (Software Requirement Specification).</li>
+    <li><strong>Planning / Feasibility Study:</strong> Evaluates technical, operational, and economic feasibility of the project.</li>
+    <li><strong>Design:</strong> High-Level Design (HLD) describes architecture; Low-Level Design (LLD) details modules/components.</li>
+    <li><strong>Implementation / Coding:</strong> Developers write code per the design documents.</li>
+    <li><strong>Testing:</strong> QA team validates the software against requirements and reports defects.</li>
+    <li><strong>Deployment:</strong> Release to production environment for end-user use.</li>
+    <li><strong>Maintenance:</strong> Ongoing bug fixes, enhancements, and updates.</li>
+</ol>
+
+<h3>Popular SDLC Models</h3>
+<table>
+    <tr><th>Model</th><th>Description</th><th>Best For</th></tr>
+    <tr><td>Waterfall</td><td>Sequential, phase-by-phase approach</td><td>Small, clearly defined projects</td></tr>
+    <tr><td>V-Model</td><td>Verification &amp; Validation parallel to development</td><td>Safety-critical systems</td></tr>
+    <tr><td>Agile</td><td>Iterative, incremental, flexible</td><td>Dynamic requirements</td></tr>
+    <tr><td>Spiral</td><td>Risk-driven, iterative</td><td>Large, complex projects</td></tr>
+    <tr><td>Iterative</td><td>Repeated cycles of development</td><td>Evolving projects</td></tr>
+    <tr><td>DevOps</td><td>Continuous integration &amp; delivery</td><td>Cloud-based products</td></tr>
+</table>
+</div>
+
+<!-- ========== 2. STLC ========== -->
+<div class="section">
+<h2>2. Software Testing Life Cycle (STLC)</h2>
+<p>STLC is a sequence of specific activities conducted during the testing process to ensure software quality goals are met.</p>
+
+<h3>Phases of STLC</h3>
+<ol>
+    <li><strong>Requirement Analysis:</strong> Testers study requirements to identify testable items. Deliverable: RTM (Requirement Traceability Matrix).</li>
+    <li><strong>Test Planning:</strong> Test lead prepares the Test Plan — defines scope, approach, resources, schedule. Deliverable: Test Plan, Effort Estimation.</li>
+    <li><strong>Test Case Design:</strong> Writing detailed test cases and preparing test data. Deliverable: Test Cases, Test Scripts.</li>
+    <li><strong>Test Environment Setup:</strong> Configuring hardware/software needed for testing. Deliverable: Environment Readiness Report.</li>
+    <li><strong>Test Execution:</strong> Running test cases, reporting defects, and retesting. Deliverable: Test Execution Report, Defect Report.</li>
+    <li><strong>Test Closure:</strong> Analysis of results, lessons learned, metrics. Deliverable: Test Closure Report.</li>
+</ol>
+
+<h3>SDLC vs STLC</h3>
+<table>
+    <tr><th>SDLC</th><th>STLC</th></tr>
+    <tr><td>Covers entire software development</td><td>Covers only the testing portion</td></tr>
+    <tr><td>Focuses on building the product</td><td>Focuses on validating the product</td></tr>
+    <tr><td>Involves BA, developers, QA, stakeholders</td><td>Involves QA team only</td></tr>
+    <tr><td>Deliverable: Working software</td><td>Deliverable: Quality report, defect report</td></tr>
+</table>
+</div>
+
+<!-- ========== 3. Types of Testing ========== -->
+<div class="section">
+<h2>3. Types of Testing</h2>
+
+<h3>A. Functional Testing</h3>
+<p>Verifies that each function of the software operates per requirements. Input-output based.</p>
+<ul>
+    <li><strong>Unit Testing:</strong> Individual components/modules (done by developers).</li>
+    <li><strong>Integration Testing:</strong> Modules combined and tested together.</li>
+    <li><strong>System Testing:</strong> Complete, integrated system tested end-to-end.</li>
+    <li><strong>Acceptance Testing:</strong> Performed by client/end user (UAT).</li>
+</ul>
+
+<h3>B. Non-Functional Testing</h3>
+<ul>
+    <li><strong>Performance Testing:</strong> How system performs under normal load.</li>
+    <li><strong>Load Testing:</strong> Behavior under expected load conditions.</li>
+    <li><strong>Stress Testing:</strong> Behavior beyond normal capacity (break point).</li>
+    <li><strong>Volume Testing:</strong> Handling large amounts of data.</li>
+    <li><strong>Security Testing:</strong> Identifies vulnerabilities.</li>
+    <li><strong>Usability Testing:</strong> User-friendliness of interface.</li>
+    <li><strong>Compatibility Testing:</strong> Across browsers, OS, devices.</li>
+    <li><strong>Recovery Testing:</strong> System's ability to recover from crashes.</li>
+</ul>
+
+<h3>C. Other Important Types</h3>
+<ul>
+    <li><strong>Smoke Testing:</strong> Also called "Build Verification Testing." Quick check to ensure critical functionality works after a new build.</li>
+    <li><strong>Sanity Testing:</strong> Narrow regression after minor changes to verify specific fixes work.</li>
+    <li><strong>Regression Testing:</strong> Re-running tests to ensure new changes don't break existing functionality.</li>
+    <li><strong>Retesting:</strong> Re-executing the same test case that failed to verify the fix.</li>
+    <li><strong>Exploratory Testing:</strong> Simultaneous learning, test design, and execution without pre-written cases.</li>
+    <li><strong>Ad-hoc Testing:</strong> Informal testing without documentation — "random testing."</li>
+    <li><strong>Monkey Testing:</strong> Random inputs to check system stability.</li>
+    <li><strong>Alpha Testing:</strong> Done in-house by QA team before release.</li>
+    <li><strong>Beta Testing:</strong> Done by real users in real environment before production launch.</li>
+</ul>
+
+<h3>Smoke vs Sanity Testing</h3>
+<table>
+    <tr><th>Smoke Testing</th><th>Sanity Testing</th></tr>
+    <tr><td>Broad but shallow</td><td>Narrow but deep</td></tr>
+    <tr><td>Performed on initial build</td><td>Performed on stable build after minor changes</td></tr>
+    <tr><td>Documented &amp; scripted</td><td>Usually not documented</td></tr>
+    <tr><td>Done by developers or testers</td><td>Done by testers</td></tr>
+</table>
+
+<h3>Retesting vs Regression Testing</h3>
+<table>
+    <tr><th>Retesting</th><th>Regression Testing</th></tr>
+    <tr><td>Verifies a specific defect is fixed</td><td>Verifies nothing else is broken</td></tr>
+    <tr><td>High priority</td><td>Lower priority than retesting</td></tr>
+    <tr><td>Cannot be automated easily</td><td>Ideal for automation</td></tr>
+    <tr><td>Planned for failed test cases</td><td>Planned for passed test cases around changes</td></tr>
+</table>
+</div>
+
+<!-- ========== 4. Test Case Design ========== -->
+<div class="section">
+<h2>4. Test Case Design</h2>
+
+<h3>Components of a Good Test Case</h3>
+<table>
+    <tr><th>Field</th><th>Description</th></tr>
+    <tr><td>Test Case ID</td><td>Unique identifier (e.g., TC_Login_001)</td></tr>
+    <tr><td>Test Scenario / Title</td><td>Brief description of what is being tested</td></tr>
+    <tr><td>Description / Objective</td><td>Purpose of the test case</td></tr>
+    <tr><td>Preconditions</td><td>Setup required before execution</td></tr>
+    <tr><td>Test Steps</td><td>Step-by-step instructions</td></tr>
+    <tr><td>Test Data</td><td>Inputs required</td></tr>
+    <tr><td>Expected Result</td><td>What should happen</td></tr>
+    <tr><td>Actual Result</td><td>What actually happened</td></tr>
+    <tr><td>Status</td><td>Pass / Fail / Blocked / Skipped</td></tr>
+    <tr><td>Priority</td><td>High / Medium / Low</td></tr>
+    <tr><td>Severity</td><td>Critical / Major / Minor / Trivial</td></tr>
+    <tr><td>Comments / Notes</td><td>Additional info, screenshots</td></tr>
+</table>
+
+<h3>Test Case Design Techniques</h3>
+<ul>
+    <li><strong>Equivalence Partitioning (EP):</strong> Divide input data into valid and invalid partitions. Test one value from each partition.
+        <br><em>Example:</em> Age field (1–100). Valid: {1–100}, Invalid: {&lt;1, &gt;100}. Test with 50, 0, and 101.</li>
+    <li><strong>Boundary Value Analysis (BVA):</strong> Test at boundaries where defects cluster. For range 1–100, test 0, 1, 2, 99, 100, 101.</li>
+    <li><strong>Decision Table Testing:</strong> Tabular representation of inputs vs expected outputs — used for complex business rules.</li>
+    <li><strong>State Transition Testing:</strong> Used when behavior depends on state (e.g., ATM: Card Inserted → PIN Entered → Authenticated).</li>
+    <li><strong>Use Case Testing:</strong> Based on actor-system interactions.</li>
+    <li><strong>Error Guessing:</strong> Testers use experience to predict where errors might occur.</li>
+    <li><strong>Pair-wise / Orthogonal Array Testing:</strong> Covers all pairs of parameter values efficiently.</li>
+</ul>
+
+<div class="tip"><strong>Tip:</strong> Write test cases that are atomic (one check per case), reusable, independent, and traceable to requirements.</div>
+</div>
+
+<!-- ========== 5. Defect Life Cycle ========== -->
+<div class="section">
+<h2>5. Defect Life Cycle (Bug Life Cycle)</h2>
+<p>The defect life cycle represents the various states a bug passes through from discovery to closure.</p>
+
+<h3>Defect States</h3>
+<ol>
+    <li><strong>New:</strong> Defect is logged for the first time.</li>
+    <li><strong>Assigned:</strong> Assigned to a developer by the lead/manager.</li>
+    <li><strong>Open:</strong> Developer starts analyzing the defect.</li>
+    <li><strong>Fixed:</strong> Developer has fixed the defect.</li>
+    <li><strong>Pending Retest / Ready for Test:</strong> Moved to QA for retesting.</li>
+    <li><strong>Retest:</strong> Tester verifies the fix.</li>
+    <li><strong>Verified:</strong> Fix works correctly.</li>
+    <li><strong>Closed:</strong> Defect fully resolved.</li>
+    <li><strong>Reopened:</strong> Fix didn't work — sent back to developer.</li>
+    <li><strong>Rejected:</strong> Not a valid defect.</li>
+    <li><strong>Deferred:</strong> Valid but postponed to future release.</li>
+    <li><strong>Duplicate:</strong> Already reported.</li>
+</ol>
+
+<h3>Severity vs Priority</h3>
+<table>
+    <tr><th>Severity</th><th>Priority</th></tr>
+    <tr><td>Impact of defect on functionality</td><td>How urgently it needs to be fixed</td></tr>
+    <tr><td>Set by tester</td><td>Set by manager/product owner</td></tr>
+    <tr><td>Levels: Critical, Major, Minor, Trivial</td><td>Levels: High, Medium, Low</td></tr>
+    <tr><td>Technical aspect</td><td>Business aspect</td></tr>
+</table>
+
+<h3>Examples</h3>
+<ul>
+    <li><strong>High Severity, High Priority:</strong> Login page crashes.</li>
+    <li><strong>High Severity, Low Priority:</strong> A rarely-used page fails under extreme load.</li>
+    <li><strong>Low Severity, High Priority:</strong> Company logo misspelled on homepage.</li>
+    <li><strong>Low Severity, Low Priority:</strong> Minor alignment issue on settings page.</li>
+</ul>
+</div>
+
+<!-- ========== 6. Bug Reporting Tools ========== -->
+<div class="section">
+<h2>6. Bug Reporting Tools</h2>
+<ul>
+    <li><strong>JIRA (Atlassian):</strong> Most popular tool for Agile teams — issue tracking, sprint management, dashboards.</li>
+    <li><strong>Bugzilla:</strong> Open-source web-based bug tracking system.</li>
+    <li><strong>TestRail:</strong> Test case management with bug tracker integration.</li>
+    <li><strong>Mantis BT:</strong> Open-source bug tracker.</li>
+    <li><strong>Redmine:</strong> Project management + issue tracking.</li>
+    <li><strong>Azure DevOps:</strong> Microsoft's integrated DevOps platform.</li>
+    <li><strong>Zephyr:</strong> Test management for JIRA.</li>
+    <li><strong>Trello / Asana:</strong> Simple task &amp; bug tracking for smaller teams.</li>
+</ul>
+
+<h3>Elements of a Good Bug Report</h3>
+<ol>
+    <li>Bug ID &amp; Title (clear &amp; descriptive)</li>
+    <li>Environment details (OS, browser, version, device)</li>
+    <li>Build / Version</li>
+    <li>Steps to reproduce (numbered, clear)</li>
+    <li>Expected result</li>
+    <li>Actual result</li>
+    <li>Severity &amp; Priority</li>
+    <li>Screenshots / videos / logs</li>
+    <li>Reproducibility (always, sometimes, once)</li>
+    <li>Assignee</li>
+</ol>
+</div>
+
+<!-- ========== 7. Test Plan / Test Strategy ========== -->
+<div class="section">
+<h2>7. Test Plan and Test Strategy</h2>
+
+<h3>Test Plan</h3>
+<p>A document describing the scope, approach, resources, and schedule of testing activities. Created by the Test Manager.</p>
+<strong>Components (per IEEE 829):</strong>
+<ol>
+    <li>Test Plan Identifier</li>
+    <li>Introduction</li>
+    <li>Test Items</li>
+    <li>Features to be Tested</li>
+    <li>Features NOT to be Tested</li>
+    <li>Approach</li>
+    <li>Pass/Fail Criteria</li>
+    <li>Suspension &amp; Resumption Criteria</li>
+    <li>Test Deliverables</li>
+    <li>Environmental Needs</li>
+    <li>Staffing &amp; Training Needs</li>
+    <li>Responsibilities</li>
+    <li>Schedule</li>
+    <li>Risks &amp; Contingencies</li>
+    <li>Approvals</li>
+</ol>
+
+<h3>Test Strategy</h3>
+<p>A high-level document outlining the overall testing approach at the organizational level. Usually static and project-independent.</p>
+
+<h3>Test Plan vs Test Strategy</h3>
+<table>
+    <tr><th>Test Plan</th><th>Test Strategy</th></tr>
+    <tr><td>Project-specific</td><td>Organization-wide</td></tr>
+    <tr><td>Created by Test Manager</td><td>Created by Project Manager / QA Head</td></tr>
+    <tr><td>Derived from SRS</td><td>Derived from Business Requirements</td></tr>
+    <tr><td>Changes frequently</td><td>Mostly static</td></tr>
+</table>
+</div>
+
+<!-- ========== 8. Test Data Management ========== -->
+<div class="section">
+<h2>8. Test Data Management</h2>
+<p>Test data management involves creating, storing, and maintaining data needed for test execution.</p>
+
+<h3>Types of Test Data</h3>
+<ul>
+    <li><strong>Valid Data:</strong> Correctly formatted, within allowed range.</li>
+    <li><strong>Invalid Data:</strong> Wrong format or out of range — tests error handling.</li>
+    <li><strong>Boundary Data:</strong> At edges of valid ranges.</li>
+    <li><strong>Null / Empty Data:</strong> Testing blank field handling.</li>
+    <li><strong>Stress / Huge Data:</strong> For performance/volume testing.</li>
+</ul>
+
+<h3>Best Practices</h3>
+<ul>
+    <li>Mask / anonymize production data to respect privacy (GDPR).</li>
+    <li>Use test data generation tools (Mockaroo, Faker).</li>
+    <li>Maintain reusable test data sets.</li>
+    <li>Keep data isolated between environments.</li>
+</ul>
+</div>
+
+<!-- ========== 9. Testing Techniques ========== -->
+<div class="section">
+<h2>9. Testing Techniques</h2>
+
+<h3>Black Box Testing</h3>
+<p>Tester examines functionality without knowing internal code structure. Focus is on inputs and expected outputs.</p>
+<ul>
+    <li>Examples: Equivalence partitioning, BVA, decision tables.</li>
+    <li>Used for functional, system, acceptance testing.</li>
+</ul>
+
+<h3>White Box Testing</h3>
+<p>Tester has full knowledge of code/internal logic. Focus is on code paths, branches, loops.</p>
+<ul>
+    <li>Examples: Statement coverage, branch coverage, path coverage.</li>
+    <li>Used for unit testing.</li>
+</ul>
+
+<h3>Gray Box Testing</h3>
+<p>Combination — tester has partial knowledge of internal structure. Commonly used for integration and security testing.</p>
+
+<table>
+    <tr><th>Aspect</th><th>Black Box</th><th>White Box</th><th>Gray Box</th></tr>
+    <tr><td>Code knowledge</td><td>No</td><td>Full</td><td>Partial</td></tr>
+    <tr><td>Performed by</td><td>Testers</td><td>Developers</td><td>Both</td></tr>
+    <tr><td>Focus</td><td>Functionality</td><td>Logic / code</td><td>Both</td></tr>
+</table>
+</div>
+
+<!-- ========== 10. Cross-browser / device testing ========== -->
+<div class="section">
+<h2>10. Cross-Browser and Cross-Device Testing</h2>
+<p>Ensures the application behaves consistently across various browsers, OS, and devices.</p>
+
+<h3>Key Areas</h3>
+<ul>
+    <li><strong>Browsers:</strong> Chrome, Firefox, Safari, Edge, Opera.</li>
+    <li><strong>Operating Systems:</strong> Windows, macOS, Linux, iOS, Android.</li>
+    <li><strong>Devices:</strong> Desktop, tablets, mobile (varied screen sizes/resolutions).</li>
+    <li><strong>Responsive design:</strong> Layout adapts to screen size.</li>
+</ul>
+
+<h3>Tools</h3>
+<ul>
+    <li>BrowserStack, Sauce Labs, LambdaTest — cloud-based testing.</li>
+    <li>Chrome DevTools — device emulation.</li>
+    <li>Responsinator — quick responsive checks.</li>
+</ul>
+</div>
+
+<!-- ========== 11. Security Testing ========== -->
+<div class="section">
+<h2>11. Security Testing</h2>
+<p>Identifies vulnerabilities to protect data and functionality from threats.</p>
+
+<h3>OWASP Top 10 Vulnerabilities (Must Know)</h3>
+<ol>
+    <li>Broken Access Control</li>
+    <li>Cryptographic Failures</li>
+    <li>Injection (SQL, NoSQL, OS Command)</li>
+    <li>Insecure Design</li>
+    <li>Security Misconfiguration</li>
+    <li>Vulnerable &amp; Outdated Components</li>
+    <li>Identification &amp; Authentication Failures</li>
+    <li>Software &amp; Data Integrity Failures</li>
+    <li>Security Logging &amp; Monitoring Failures</li>
+    <li>Server-Side Request Forgery (SSRF)</li>
+</ol>
+
+<h3>Common Attacks to Test</h3>
+<ul>
+    <li><strong>SQL Injection:</strong> <code>' OR '1'='1</code> in login fields.</li>
+    <li><strong>XSS (Cross-Site Scripting):</strong> <code>&lt;script&gt;alert('xss')&lt;/script&gt;</code>.</li>
+    <li><strong>CSRF:</strong> Forged request from authenticated user.</li>
+    <li><strong>Session Hijacking:</strong> Stealing session tokens/cookies.</li>
+    <li><strong>Brute Force:</strong> Guessing credentials by repeated attempts.</li>
+</ul>
+
+<h3>Security Testing Tools</h3>
+<ul>
+    <li>OWASP ZAP, Burp Suite, Nessus, Nikto, Acunetix.</li>
+</ul>
+</div>
+
+<!-- ========== 12. Usability Testing ========== -->
+<div class="section">
+<h2>12. Usability Testing</h2>
+<p>Evaluates how user-friendly, intuitive, and accessible the application is for end users.</p>
+
+<h3>Key Parameters (The 5 E's)</h3>
+<ul>
+    <li><strong>Effective:</strong> Does it achieve user goals?</li>
+    <li><strong>Efficient:</strong> Can users complete tasks quickly?</li>
+    <li><strong>Engaging:</strong> Is it pleasant to use?</li>
+    <li><strong>Error-tolerant:</strong> Does it prevent/recover from errors?</li>
+    <li><strong>Easy to learn:</strong> Can a first-time user pick it up?</li>
+</ul>
+
+<h3>Areas to Check</h3>
+<ul>
+    <li>Navigation clarity</li>
+    <li>Consistency in design (colors, fonts, buttons)</li>
+    <li>Readability of text</li>
+    <li>Accessibility (WCAG — color contrast, screen reader support, keyboard navigation)</li>
+    <li>Meaningful error messages</li>
+    <li>Mobile-friendliness</li>
+</ul>
+</div>
+
+<!-- ========== 13. Test Execution and Reporting ========== -->
+<div class="section">
+<h2>13. Test Execution and Reporting</h2>
+
+<h3>Execution Steps</h3>
+<ol>
+    <li>Pick test cases from the repository.</li>
+    <li>Prepare test environment and data.</li>
+    <li>Execute each step and compare actual with expected.</li>
+    <li>Mark status: Pass / Fail / Blocked / Skipped.</li>
+    <li>Log defects for failed cases.</li>
+    <li>Attach evidence (screenshots, logs).</li>
+</ol>
+
+<h3>Test Metrics to Report</h3>
+<ul>
+    <li>Total test cases executed vs. planned</li>
+    <li>Pass/Fail percentage</li>
+    <li>Defect density (defects per module/KLOC)</li>
+    <li>Defect severity index</li>
+    <li>Test execution progress</li>
+    <li>Defect removal efficiency (DRE)</li>
+</ul>
+
+<h3>Daily Status Report (DSR) Contents</h3>
+<ul>
+    <li>Date, tester name, module</li>
+    <li>Planned vs. executed cases</li>
+    <li>Pass/fail counts</li>
+    <li>Blockers / risks</li>
+    <li>Defects logged</li>
+</ul>
+</div>
+
+<!-- ========== 14. Test Environment Setup ========== -->
+<div class="section">
+<h2>14. Test Environment Setup</h2>
+<p>The test environment is a setup of hardware, software, and network configurations where testing takes place.</p>
+
+<h3>Elements</h3>
+<ul>
+    <li>Hardware (servers, client machines)</li>
+    <li>Software (OS, DB, browsers, dependencies)</li>
+    <li>Network configuration</li>
+    <li>Test data setup</li>
+    <li>Test tools (Selenium, JIRA, Postman etc.)</li>
+    <li>Build artifacts deployment</li>
+</ul>
+
+<h3>Common Environments</h3>
+<ul>
+    <li><strong>DEV:</strong> Developer's local environment</li>
+    <li><strong>QA / Test:</strong> For QA team</li>
+    <li><strong>Staging / Pre-Prod:</strong> Mirror of production</li>
+    <li><strong>UAT:</strong> For end-user validation</li>
+    <li><strong>Production:</strong> Live environment</li>
+</ul>
+</div>
+
+<!-- ========== 15. Risk-Based Testing ========== -->
+<div class="section">
+<h2>15. Risk-Based Testing (RBT)</h2>
+<p>An approach that prioritizes tests based on the risk (likelihood × impact) of failure.</p>
+
+<h3>Steps</h3>
+<ol>
+    <li>Identify risks (product &amp; project).</li>
+    <li>Assess risk probability &amp; impact.</li>
+    <li>Prioritize risks (High / Medium / Low).</li>
+    <li>Design &amp; execute tests based on priority.</li>
+    <li>Monitor &amp; mitigate risks throughout project.</li>
+</ol>
+
+<h3>Risk Matrix</h3>
+<table>
+    <tr><th>Impact →</th><th>Low</th><th>Medium</th><th>High</th></tr>
+    <tr><th>High Probability</th><td>Medium</td><td>High</td><td>Critical</td></tr>
+    <tr><th>Medium Probability</th><td>Low</td><td>Medium</td><td>High</td></tr>
+    <tr><th>Low Probability</th><td>Low</td><td>Low</td><td>Medium</td></tr>
+</table>
+</div>
+
+<!-- ========== 16. Agile ========== -->
+<div class="section">
+<h2>16. Agile Methodology in Testing</h2>
+
+<h3>Agile Principles (Relevant)</h3>
+<ul>
+    <li>Working software over comprehensive documentation</li>
+    <li>Customer collaboration over contract negotiation</li>
+    <li>Responding to change over following a plan</li>
+    <li>Continuous delivery of value</li>
+</ul>
+
+<h3>Scrum Framework</h3>
+<ul>
+    <li><strong>Roles:</strong> Product Owner, Scrum Master, Dev Team.</li>
+    <li><strong>Artifacts:</strong> Product Backlog, Sprint Backlog, Increment.</li>
+    <li><strong>Ceremonies:</strong>
+        <ul>
+            <li>Sprint Planning</li>
+            <li>Daily Stand-up (15 mins)</li>
+            <li>Sprint Review</li>
+            <li>Sprint Retrospective</li>
+            <li>Backlog Grooming / Refinement</li>
+        </ul>
+    </li>
+    <li><strong>Sprint:</strong> 1–4 weeks iteration.</li>
+</ul>
+
+<h3>Kanban</h3>
+<p>Visual workflow (To Do → In Progress → Testing → Done). Focus on limiting WIP and continuous flow.</p>
+
+<h3>Scrum vs Kanban</h3>
+<table>
+    <tr><th>Scrum</th><th>Kanban</th></tr>
+    <tr><td>Time-boxed sprints</td><td>Continuous flow</td></tr>
+    <tr><td>Fixed roles</td><td>No prescribed roles</td></tr>
+    <tr><td>Sprint-based planning</td><td>On-demand planning</td></tr>
+</table>
+
+<h3>Agile Testing Practices</h3>
+<ul>
+    <li><strong>TDD (Test-Driven Development):</strong> Write test first → write code to pass test → refactor.</li>
+    <li><strong>BDD (Behavior-Driven Development):</strong> Gherkin syntax — Given/When/Then.</li>
+    <li><strong>ATDD (Acceptance Test-Driven Development):</strong> Acceptance criteria drive tests.</li>
+    <li><strong>CI/CD:</strong> Continuous Integration &amp; Deployment — automated build and test pipelines.</li>
+    <li><strong>Shift-Left Testing:</strong> Start testing earlier in SDLC.</li>
+</ul>
+
+<h3>Agile QA Responsibilities</h3>
+<ul>
+    <li>Participate in all ceremonies</li>
+    <li>Help define acceptance criteria</li>
+    <li>Write automated &amp; manual tests per user story</li>
+    <li>Perform exploratory testing</li>
+    <li>Collaborate with devs continuously</li>
+</ul>
+</div>
+
+<!-- ========== 17. Test Automation Fundamentals ========== -->
+<div class="section">
+<h2>17. Test Automation Fundamentals</h2>
+
+<h3>Why Automate?</h3>
+<ul>
+    <li>Speed &amp; efficiency for regression</li>
+    <li>Repeatability &amp; reliability</li>
+    <li>Cost saving in the long run</li>
+    <li>Coverage for data-driven scenarios</li>
+</ul>
+
+<h3>What to Automate</h3>
+<ul>
+    <li>Regression tests, smoke tests</li>
+    <li>Data-driven tests</li>
+    <li>Repetitive tests</li>
+    <li>Performance &amp; load tests</li>
+</ul>
+
+<h3>What NOT to Automate</h3>
+<ul>
+    <li>Exploratory testing</li>
+    <li>Usability testing</li>
+    <li>Tests that run rarely</li>
+    <li>Constantly changing UI</li>
+</ul>
+
+<h3>Popular Tools</h3>
+<table>
+    <tr><th>Tool</th><th>Purpose</th></tr>
+    <tr><td>Selenium WebDriver</td><td>Web UI automation (most popular)</td></tr>
+    <tr><td>Cypress</td><td>Modern web testing, JS-based</td></tr>
+    <tr><td>Playwright</td><td>Cross-browser automation by Microsoft</td></tr>
+    <tr><td>Appium</td><td>Mobile automation (iOS &amp; Android)</td></tr>
+    <tr><td>JMeter</td><td>Performance / load testing</td></tr>
+    <tr><td>LoadRunner</td><td>Enterprise performance testing</td></tr>
+    <tr><td>Postman / RestAssured</td><td>API testing</td></tr>
+    <tr><td>TestNG / JUnit</td><td>Test frameworks (Java)</td></tr>
+    <tr><td>Jenkins / GitHub Actions</td><td>CI/CD pipelines</td></tr>
+</table>
+
+<h3>Testing Pyramid</h3>
+<ul>
+    <li><strong>Base:</strong> Unit tests (most, fastest).</li>
+    <li><strong>Middle:</strong> Integration / API tests.</li>
+    <li><strong>Top:</strong> UI / End-to-End tests (fewest, slowest).</li>
+</ul>
+</div>
+
+<!-- ========== 18. Soft Skills ========== -->
+<div class="section">
+<h2>18. Soft Skills for QA Engineers</h2>
+<ul>
+    <li><strong>Communication:</strong> Clearly articulate bugs, risks, and requirements to developers, BAs, POs.</li>
+    <li><strong>Analytical thinking:</strong> Break down complex problems, think about edge cases.</li>
+    <li><strong>Attention to detail:</strong> Notice subtle UI inconsistencies, off-by-one errors, typos.</li>
+    <li><strong>Curiosity:</strong> Ask "what if?" — explore beyond happy paths.</li>
+    <li><strong>Time management:</strong> Prioritize testing with limited time.</li>
+    <li><strong>Collaboration:</strong> Work closely with devs, designers, product owners.</li>
+    <li><strong>Adaptability:</strong> Requirements change, priorities shift — remain flexible.</li>
+    <li><strong>Critical thinking:</strong> Don't assume — question, verify.</li>
+    <li><strong>Empathy:</strong> Think like end users, feel their pain points.</li>
+    <li><strong>Patience &amp; persistence:</strong> Reproducing hard-to-find bugs takes time.</li>
+</ul>
+</div>
+
+<!-- ========== 19. Ethical Hacking ========== -->
+<div class="section">
+<h2>19. Ethical Hacking (Basics for Security Testing)</h2>
+<p>Ethical hackers identify vulnerabilities legally to help strengthen security.</p>
+
+<h3>Phases of Ethical Hacking</h3>
+<ol>
+    <li><strong>Reconnaissance:</strong> Gathering information (passive &amp; active).</li>
+    <li><strong>Scanning:</strong> Port scanning, vulnerability scanning.</li>
+    <li><strong>Gaining Access:</strong> Exploiting vulnerabilities.</li>
+    <li><strong>Maintaining Access:</strong> Persistence (for legitimate long-term testing).</li>
+    <li><strong>Clearing Tracks / Reporting:</strong> Document findings.</li>
+</ol>
+
+<h3>Types of Hackers</h3>
+<ul>
+    <li><strong>White Hat:</strong> Ethical hackers (authorized).</li>
+    <li><strong>Black Hat:</strong> Malicious attackers.</li>
+    <li><strong>Gray Hat:</strong> In between — unauthorized but not malicious.</li>
+</ul>
+
+<h3>Basic Tools for QA</h3>
+<ul>
+    <li>Burp Suite — web proxy &amp; testing.</li>
+    <li>OWASP ZAP — automated scanner.</li>
+    <li>Nmap — network discovery.</li>
+    <li>Wireshark — network packet analysis.</li>
+    <li>Metasploit — exploitation framework.</li>
+</ul>
+<div class="tip"><strong>Note:</strong> Always get written authorization before performing any security testing.</div>
+</div>
+
+<!-- ========== 20. Industry Standards ========== -->
+<div class="section">
+<h2>20. Industry Standards and Compliance</h2>
+
+<h3>Testing Standards</h3>
+<ul>
+    <li><strong>ISO/IEC 29119:</strong> International standard for software testing (processes, documentation, techniques).</li>
+    <li><strong>ISO 9126 / 25010:</strong> Software quality model (functionality, reliability, usability, efficiency, maintainability, portability).</li>
+    <li><strong>IEEE 829:</strong> Standard for test documentation (test plan template).</li>
+    <li><strong>IEEE 1008:</strong> Standard for unit testing.</li>
+    <li><strong>CMMI:</strong> Capability Maturity Model Integration (Levels 1–5).</li>
+</ul>
+
+<h3>Compliance Regulations</h3>
+<ul>
+    <li><strong>GDPR (EU):</strong> Data protection &amp; privacy — test for data masking, consent, right-to-erasure.</li>
+    <li><strong>HIPAA (US):</strong> Healthcare data security &amp; privacy.</li>
+    <li><strong>PCI-DSS:</strong> Payment card industry standards.</li>
+    <li><strong>SOX:</strong> Financial reporting accuracy.</li>
+    <li><strong>WCAG:</strong> Web content accessibility.</li>
+    <li><strong>FDA 21 CFR Part 11:</strong> Electronic records in pharma / medical devices.</li>
+</ul>
+</div>
+
+<!-- ========== 21. Interview Q&A ========== -->
+<div class="section">
+<h2>21. Common Interview Questions &amp; Sample Answers</h2>
+
+<div class="qa"><strong>Q1. What is the difference between verification and validation?</strong><br>
+<strong>Verification:</strong> "Are we building the product right?" — static testing, reviews, inspections.<br>
+<strong>Validation:</strong> "Are we building the right product?" — dynamic testing, actual execution.</div>
+
+<div class="qa"><strong>Q2. What is the difference between a bug, defect, error, and failure?</strong><br>
+<strong>Error:</strong> Mistake made by developer in code.<br>
+<strong>Bug/Defect:</strong> Result of the error found during testing.<br>
+<strong>Failure:</strong> When the defect reaches the end user and causes malfunction.</div>
+
+<div class="qa"><strong>Q3. When do you stop testing?</strong><br>
+When: test cases are executed with acceptable pass %, test coverage &amp; exit criteria are met, deadline is reached, no critical/high defects are open, and the product is stable.</div>
+
+<div class="qa"><strong>Q4. What is a Traceability Matrix?</strong><br>
+A document that maps requirements to test cases to ensure all requirements are tested — also called RTM (Requirement Traceability Matrix).</div>
+
+<div class="qa"><strong>Q5. Difference between positive and negative testing?</strong><br>
+<strong>Positive:</strong> Verify the system works with valid inputs.<br>
+<strong>Negative:</strong> Verify the system handles invalid inputs gracefully.</div>
+
+<div class="qa"><strong>Q6. What is a test harness?</strong><br>
+A collection of software &amp; test data used to test a program by running it under varying conditions and monitoring its behavior and outputs.</div>
+
+<div class="qa"><strong>Q7. What is a test bed?</strong><br>
+An environment configured with hardware, software, network, and test data used to execute tests.</div>
+
+<div class="qa"><strong>Q8. What are test deliverables?</strong><br>
+Documents produced during testing: test plan, test cases, test scripts, test data, RTM, defect reports, test summary report.</div>
+
+<div class="qa"><strong>Q9. What is Boundary Value Analysis? Give an example.</strong><br>
+Testing at the boundaries of input ranges where defects cluster. For a field that accepts 1–100, test values: 0, 1, 2, 99, 100, 101.</div>
+
+<div class="qa"><strong>Q10. Explain the bug life cycle.</strong><br>
+New → Assigned → Open → Fixed → Retest → Verified → Closed. May also include: Reopened, Rejected, Deferred, Duplicate.</div>
+
+<div class="qa"><strong>Q11. What's the difference between Alpha and Beta testing?</strong><br>
+<strong>Alpha:</strong> Done in-house by testers/developers before release.<br>
+<strong>Beta:</strong> Done by real users in their environment before final release.</div>
+
+<div class="qa"><strong>Q12. What is the difference between test scenario and test case?</strong><br>
+<strong>Test Scenario:</strong> High-level "what to test" (e.g., verify login functionality).<br>
+<strong>Test Case:</strong> Detailed step-by-step "how to test" with inputs &amp; expected results.</div>
+
+<div class="qa"><strong>Q13. What are exit criteria?</strong><br>
+Conditions that must be met before testing is considered complete — e.g., 100% test execution, 95% pass rate, no critical open defects.</div>
+
+<div class="qa"><strong>Q14. What is the difference between load testing and stress testing?</strong><br>
+<strong>Load:</strong> System behavior under expected load.<br>
+<strong>Stress:</strong> System behavior beyond capacity to find breaking point.</div>
+
+<div class="qa"><strong>Q15. What is API testing, and how is it different from UI testing?</strong><br>
+<strong>API testing</strong> verifies backend services (request/response, status codes, data integrity) — faster, reliable, no UI. <strong>UI testing</strong> verifies the front-end — slower, brittle, requires rendering.</div>
+
+<div class="qa"><strong>Q16. What is the difference between test plan and test strategy?</strong><br>
+Test plan is project-specific and dynamic, derived from SRS, created by test manager. Test strategy is organization-wide and static, derived from business requirements, created by PM.</div>
+
+<div class="qa"><strong>Q17. How do you prioritize test cases?</strong><br>
+Based on: business criticality, risk of failure, frequency of use, impact on end users, requirements priority, and complexity of the module.</div>
+
+<div class="qa"><strong>Q18. How do you handle a situation where a developer says "it's not a bug"?</strong><br>
+Stay professional. Provide clear reproduction steps, evidence (screenshots/logs), reference to requirements or user expectations. Involve BA/PO if disagreement persists.</div>
+
+<div class="qa"><strong>Q19. What is a defect leakage?</strong><br>
+When a defect escapes from a testing phase to production or a later phase. Metric: Defect Leakage = (Defects in prod / Total defects) × 100.</div>
+
+<div class="qa"><strong>Q20. What's your approach when you have limited time to test?</strong><br>
+Use risk-based testing: focus on critical functionalities, high-risk areas, recently changed code. Perform exploratory &amp; smoke tests first. Communicate risks to stakeholders.</div>
+
+</div>
+
+<div class="footer">
+    <p><strong>Manual QA Interview Preparation Guide</strong> | Prepared for QA Engineer aspirants</p>
+    <p><em>Tip: To convert to PDF — open this file in a browser, press Ctrl+P, and select "Save as PDF".</em></p>
+</div>
+
+</body>
+</html>
